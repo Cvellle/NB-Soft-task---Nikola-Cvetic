@@ -1,15 +1,18 @@
 $(".submitBtn").on("click", function () {
+  let valueToPost = JSON.stringify({
+    firstName: $("#validationCustom04").val(),
+    lastName: $("#validationCustom04").val(),
+    gender: $("input[type='radio'][name='radio-stacked']:checked").val(),
+    address: $("#validationCustom04").val(),
+    state: $("#validationCustom04").val(),
+  });
   $.post(
-    "demo_test_post.asp",
+    "/echo/html/",
     {
-      firstName: $("#validationCustom04").val(),
-      lastName: $("#validationCustom04").val(),
-      gender: $("input[type='radio'][name='radio-stacked']:checked").val(),
-      address: $("#validationCustom04").val(),
-      state: $("#validationCustom04").val(),
+      html: valueToPost,
     },
-    function (data, status) {
-      alert("Data: " + data + "\nStatus: " + status);
+    function (data) {
+      alert(JSON.parse(data).gender);
     }
   );
 });
