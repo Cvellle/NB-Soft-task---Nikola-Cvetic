@@ -1,19 +1,18 @@
-const formElement = document.querySelector(".formEl");
-const submitBtn = document.querySelector(".submitBtn");
-
-$(".submitBtn").on("click", function (e) {
-  let datastring = $("#formEl").serialize();
-  $.ajax({
-    type: "POST",
-    url: "https://httpbin.org/post",
-    data: datastring,
-    dataType: "json",
-    success: function (data) {
-      var obj = JSON.stringify(data);
-      alert(obj);
-    },
-    error: function () {
-      $(".result").append("error handing here");
-    },
+$(".submitBtn").on("click", function () {
+  let valueToPost = JSON.stringify({
+    firstName: $("#validationCustom04").val(),
+    lastName: $("#validationCustom04").val(),
+    gender: $("input[type='radio'][name='radio-stacked']:checked").val(),
+    address: $("#validationCustom04").val(),
+    state: $("#validationCustom04").val(),
   });
+  $.post(
+    "/echo/html/",
+    {
+      html: valueToPost,
+    },
+    function (data) {
+      alert(JSON.parse(data).gender);
+    }
+  );
 });
