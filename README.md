@@ -1,1 +1,3 @@
-# NB-Soft-task---Nikola-Cvetic
+Ajax task - NB Soft
+
+Nikola Cvetić

@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: rgb(220, 232, 243);
+}
+
+body > div {
+  padding: 10vh 0;
+  background-color: rgb(220, 232, 243);
+}
+
+form {
+  border-radius: 20px;
+  padding: 100px 0;
+  background-color: white;
+}
+
+form > div {
+  height: 7rem;
+}
+
+@media only screen and (max-width: 414px) {
+  #add_form {
+    font-size: 0.75rem;
+  }
+}
