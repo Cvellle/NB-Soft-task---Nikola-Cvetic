@@ -15,7 +15,6 @@ function validation() {
   };
 
   const checkCondition = (e) => {
-    const reg = e.target.dataset.condition;
     let currentValue = e.target.value;
 
     const addValid = () => {
@@ -34,6 +33,7 @@ function validation() {
       e.target.matches("#validationTextarea") ||
       e.target.matches("#validationCustom04")
     ) {
+      const reg = e.target.dataset.condition;
       if (currentValue.match(reg)) {
         addValid();
       } else {
@@ -58,8 +58,7 @@ function validation() {
         addInvalid();
       }
       const radiosDiv = e.target.parentNode.parentNode;
-      radiosDiv.lastChild.previousElementSibling.previousElementSibling.classList.replace(
-        "is-invalid",
+      radiosDiv.lastChild.previousElementSibling.previousElementSibling.classList.add(
         "is-valid"
       );
     } else {
